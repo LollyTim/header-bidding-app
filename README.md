@@ -27,3 +27,14 @@ This project is a demonstration of a simplified header bidding system developed 
 - **Bid Validation:** Ensures only valid bids according to OpenRTB standards are accepted.
 - **Lazy Loading:** Ads are loaded only when they enter the viewport, enhancing performance.
 - **Error Handling:** Logs errors and provides fallback ads when bidding fails.
+
+## Preparation
+
+To run this project, follow these steps:
+
+1. Install Node.js and npm if you haven't already.
+2. Clone this repository.
+3. Navigate to the project directory in your terminal.
+4. Run `npm install` to install the project dependencies.
+5. Run `npm start` to start the development server.
+6. Open your web browser and navigate to `http://localhost:3000` to view the project
