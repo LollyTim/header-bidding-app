@@ -1,4 +1,4 @@
-export const TIMEOUT = 1000;
+export const TIMEOUT = 1000; // Timeout in milliseconds
 
 export const BIDDERS = [
   {

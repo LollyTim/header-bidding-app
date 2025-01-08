@@ -22,18 +22,6 @@ function App() {
           </section>
         ))}
       </div>
-
-      <footer className="mt-8 p-4 bg-gray-100 rounded-lg text-sm">
-        <h3 className="font-bold mb-2">Implementation Details:</h3>
-        <ul className="list-disc pl-4">
-          <li>Using Prebid.js version 7.53.0</li>
-          <li>Test adapters: AppNexus and Rubicon</li>
-          <li>Implemented dynamic floor prices</li>
-          <li>Real-time analytics with Google Analytics</li>
-          <li>Fallback ad support</li>
-          <li>Lazy loading ads</li>
-        </ul>
-      </footer>
     </div>
   );
 }

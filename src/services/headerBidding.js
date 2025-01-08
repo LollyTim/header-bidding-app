@@ -1,4 +1,4 @@
-import { TIMEOUT } from "../config/prebidConfig";
+import { TIMEOUT, BIDDERS } from "../config/prebidConfig";
 
 class HeaderBiddingService {
   constructor() {
@@ -22,58 +22,6 @@ class HeaderBiddingService {
               },
             },
           },
-          floors: {
-            enforcement: {
-              floorDeals: true,
-              bidAdjustment: true,
-            },
-            data: {
-              currency: "USD",
-              skipRate: 20,
-              floorsSchemaVersion: 2,
-              modelGroups: [
-                {
-                  modelWeight: 25,
-                  modelVersion: "Model1",
-                  schema: {
-                    fields: ["domain", "gptSlot", "mediaType", "size"],
-                  },
-                  values: {
-                    "example.com|/1111/home/leaderboard|banner|728x90": 1.2,
-                    "example.com|/1111/home/rectangle|banner|300x250": 1.0,
-                    "example.com|*|*|*": 0.5,
-                  },
-                  default: 0.75,
-                },
-                {
-                  modelWeight: 25,
-                  modelVersion: "Model2",
-                  schema: {
-                    fields: ["domain", "mediaType", "size"],
-                  },
-                  values: {
-                    "example.com|banner|728x90": 1.3,
-                    "example.com|banner|300x250": 0.9,
-                    "example.com|*|*": 0.6,
-                  },
-                  default: 0.7,
-                },
-                {
-                  modelWeight: 50,
-                  modelVersion: "Model3",
-                  schema: {
-                    fields: ["gptSlot", "mediaType", "size"],
-                  },
-                  values: {
-                    "/1111/home/leaderboard|banner|728x90": 1.1,
-                    "/1111/home/rectangle|banner|300x250": 1.0,
-                    "*|banner|*": 0.7,
-                  },
-                  default: 0.65,
-                },
-              ],
-            },
-          },
         });
         resolve();
       });
@@ -89,16 +37,12 @@ class HeaderBiddingService {
           bidsBackHandler: (bidResponses) => {
             const responses = bidResponses[adUnit.code]?.bids || [];
             this.pbjs.removeAdUnit(adUnit.code);
-            resolve(this.getValidBids(responses));
+            resolve(responses);
           },
           timeout: TIMEOUT,
         });
       });
     });
-  }
-
-  getValidBids(bids) {
-    return bids.filter((bid) => bid.cpm > 0);
   }
 
   getAnalytics(bids) {
