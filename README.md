@@ -1,5 +1,7 @@
 # Header Bidding Project
 
+Here is the live link: https://header-bidding-app.vercel.app/
+
 ## Overview
 
 This project is a demonstration of a simplified header bidding system developed for an interview. The primary goal is to showcase my ability to implement a real-time bidding (RTB) solution using Prebid.js, optimizing ad revenue for a publisher's website.
@@ -9,7 +11,7 @@ This project is a demonstration of a simplified header bidding system developed 
 - **Frontend:**
 
   - React.js for building the user interface.
-  - HTML/CSS for structure and styling.
+  - Tailwindcss for styling 
 
 - **Ad Tech:**
 
